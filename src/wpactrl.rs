@@ -85,6 +85,7 @@ impl WpaCtrlBuilder {
                 Ok(socket) => {
                     socket.connect(self.ctrl_path.unwrap_or_else(|| PATH_DEFAULT_SERVER.into()))?;
                     socket.set_nonblocking(true)?;
+                    println!("{:?}", bind_filepath);
                     return Ok(WpaCtrl(WpaCtrlInternal {
                         buffer: [0; BUF_SIZE],
                         handle: socket,
