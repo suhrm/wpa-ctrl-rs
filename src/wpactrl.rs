@@ -75,7 +75,7 @@ impl WpaCtrlBuilder {
         let mut counter = 0;
         loop {
             counter += 1;
-            let bind_filename = ""; //format!("wpa_ctrl_{}-{}", std::process::id(), counter);
+            let bind_filename = format!("wpa_ctrl_{}-{}", std::process::id(), counter);
             let bind_filepath = self
                 .cli_path
                 .as_deref()
