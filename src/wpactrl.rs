@@ -93,7 +93,6 @@ impl WpaCtrlBuilder {
                     }));
                 }
                 Err(ref e) if counter < 2 && e.kind() == std::io::ErrorKind::AddrInUse => {
-                    std::fs::remove_file(bind_filepath)?;
                     continue;
                 }
                 Err(e) => return Err(e.into()),
